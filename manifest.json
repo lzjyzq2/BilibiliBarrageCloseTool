@@ -1,0 +1,34 @@
+{
+    "manifest_version": 2,
+    "name": "Blibili弹幕默认关闭插件",
+    "version": "1.0.0",
+    "description": "Blibili弹幕默认关闭插件，将Bilibili的弹幕关闭",
+    "icons": {
+        "16": "img/icon.png",
+        "48": "img/icon.png",
+        "128": "img/icon.png"
+    },
+
+    "browser_action": {
+        "default_icon": "img/icon.png",
+        "default_title": "Blibili弹幕默认关闭插件",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [{
+        "matches": ["*://www.bilibili.com/video/*", "*://www.bilibili.com/bangumi/play/*", "*://live.bilibili.com/*"],
+        "js": ["main.js"],
+        "run_at": "document_end"
+    }],
+
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "storage"
+    ],
+    "options_page": "options.html",
+    "options_ui": {
+        "page": "options.html",
+        "chrome_style": true
+    }
+}
